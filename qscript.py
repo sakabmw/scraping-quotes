@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+import re
 
 # URL of the website to scrape
 url_base = "http://quotes.toscrape.com/"
@@ -43,7 +44,14 @@ def scrape_quote(url):
 # Start scraping by running the function
 scrape_quote(url_base)
 
-# Save data to a CSV file
+# Store list as a dataframe
 df = pd.DataFrame(list_quote)
+
+# Clean the values in `quote` by removing curly quotes, periods, and commas
+# Store the cleaned values in a new column: `quote_cleaned`
+quote_cleaned = [re.sub(r'[“”.,]', '', quote) for quote in df['quote']]
+df['quote_cleaned'] = quote_cleaned
+
+# Save data to a CSV file
 df.to_csv('quotes.csv', index=False)
 print("Scraping completed. Data saved to 'quotes.csv'.")
