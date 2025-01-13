@@ -1,2 +1,2 @@
-# scraping-quotes
-An exercise repo to scrape quotes from a web.
+# Scraping Quotes 
+This is an exerceise repo to scrape quotes from a web.
