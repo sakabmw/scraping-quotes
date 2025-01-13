@@ -45,5 +45,5 @@ scrape_quote(url_base)
 
 # Save data to a CSV file
 df = pd.DataFrame(list_quote)
-df.to_csv('quote.csv', index=False)
+df.to_csv('quotes.csv', index=False)
 print("Scraping completed. Data saved to 'quotes.csv'.")
