@@ -1,7 +1,7 @@
 import pandas as pd
 import re
 
-def data_cleaning(csv_input, csv_output):
+def data_cleaner(csv_input, csv_output):
     # Load the raw data
     df = pd.read_csv(csv_input)
 
