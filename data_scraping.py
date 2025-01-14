@@ -2,6 +2,9 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
+# URL of the website to scrape
+url_base = "http://quotes.toscrape.com/"
+
 # List to store scraped data
 list_quote = []
 
