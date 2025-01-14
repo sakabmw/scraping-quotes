@@ -43,7 +43,7 @@ def data_scraper(url):
                 next_url = url + page
 
             print("=== Move to the next page. ===")
-            scraper(next_url)
+            data_scraper(next_url)
         
         else:
             print("=== All pages have been covered. ===")
