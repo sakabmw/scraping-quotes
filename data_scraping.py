@@ -9,9 +9,9 @@ url_base = "http://quotes.toscrape.com/"
 list_quote = []
 
 # Set a function to scrape the data from the URL above
-def scraper(url):
-    response = requests.get(url)
+def data_scraper(url):
     print("=== Get response from the web. ===")
+    response = requests.get(url)
     if response.status_code == 200:
         print("=== Status code 200. ===")
         soup = BeautifulSoup(response.text, 'html.parser')
@@ -33,23 +33,23 @@ def scraper(url):
         # Find the next page link
         next_page = soup.find('li', class_='next')
         if next_page:
-            next_url = url_base + next_page.find('a')['href']
+            page = next_page.find('a')['href']
+
+            if bool(re.search('/page.*', url)):
+                next_url = re.sub('/page.*', page, url)
+            
+            else:
+                next_url = url + page
+
             print("=== Move to the next page. ===")
-            data_scraper(next_url)
+            scraper(next_url)
+        
+        else:
+            print("=== All pages have been covered. ===")
 
     else:
         print(f"=== Failed to retrieve page: {url} ===")
 
-    # print("=== Scraping completed. ===")
-    # print("=== Start storing the scraped data into a CSV file. ===")
-    # df = pd.DataFrame(list_quote)
-    # df.to_csv('quotes_raw.csv', index=False)
-    # print("Done. Data saved to 'quotes_raw.csv'.")
-
-def data_scraper(url):
-    url_base = url
-    print("Test variable: ", url_base)
-    scraper(url)
     print("=== Scraping completed. ===")
     print("=== Start storing the scraped data into a CSV file. ===")
     df = pd.DataFrame(list_quote)
