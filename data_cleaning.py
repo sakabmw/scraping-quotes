@@ -12,4 +12,4 @@ def data_cleaner(csv_input, csv_output):
     # Save the cleaned data into a new CSV
     print("=== Cleaning done. Now storing the cleaned data in a new CSV file. ===")
     df.to_csv(csv_output, index=False)
-    print("=== The new CSV file has been created, named as {csv_output} ===")
+    print("=== The new CSV file has been created, named as {filename} ===".format(filename=csv_output))
