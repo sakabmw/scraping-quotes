@@ -48,6 +48,7 @@ def scraper(url):
 
 def data_scraper(url):
     url_base = url
+    print("Test variable: ", url_base)
     scraper(url)
     print("=== Scraping completed. ===")
     print("=== Start storing the scraped data into a CSV file. ===")
