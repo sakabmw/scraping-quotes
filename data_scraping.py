@@ -9,7 +9,7 @@ url_base = "http://quotes.toscrape.com/"
 list_quote = []
 
 # Set a function to scrape the data from the URL above
-def data_scraper(url):
+def scraper(url):
     response = requests.get(url)
     print("=== Get response from the web. ===")
     if response.status_code == 200:
@@ -40,6 +40,15 @@ def data_scraper(url):
     else:
         print(f"=== Failed to retrieve page: {url} ===")
 
+    # print("=== Scraping completed. ===")
+    # print("=== Start storing the scraped data into a CSV file. ===")
+    # df = pd.DataFrame(list_quote)
+    # df.to_csv('quotes_raw.csv', index=False)
+    # print("Done. Data saved to 'quotes_raw.csv'.")
+
+def data_scraper(url):
+    url_base = url
+    scraper(url)
     print("=== Scraping completed. ===")
     print("=== Start storing the scraped data into a CSV file. ===")
     df = pd.DataFrame(list_quote)
