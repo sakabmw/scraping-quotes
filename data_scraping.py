@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+import re
 
 # URL of the website to scrape
 url_base = "http://quotes.toscrape.com/"
