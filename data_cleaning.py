@@ -6,8 +6,10 @@ def data_cleaner(csv_input, csv_output):
     df = pd.read_csv(csv_input)
 
     # Clean the values in column `quote`
-    df['quote'] = [re.sub(r'[“”.,]', '', quote) for quote in df['quote']]
-    # df['quote'] = df['quote'].apply(lambda x: re.sub(r'[“”.,]', '', x))
+    print("=== Remove special characters in column `quote`. ===")
+    df['quote'] = df['quote'].apply(lambda x: re.sub(r'[“”.,]', '', x))
 
     # Save the cleaned data into a new CSV
+    print("=== Cleaning done. Now storing the cleaned data in a new CSV file. ===")
     df.to_csv(csv_output, index=False)
+    print("=== The new CSV file has been created, named as {csv_output} ===")
