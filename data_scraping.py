@@ -45,11 +45,9 @@ def data_scraper(url):
         else:
             print("=== All pages have been covered. ===")
             print("=== Scraping completed. ===")
-            print("=== Create a dataframe to store the scraped data. ===")
-            df = pd.DataFrame(list_quote)
-            print("=== The data have been stored in the dataframe. ===")
 
     else:
         print(f"=== Failed to retrieve page: {url} ===")
-
+    
+    df = pd.DataFrame(list_quote)
     return df
