@@ -8,9 +8,6 @@ from data_cleaning import data_cleaner
 # URL of the website to scrape
 url_base = "http://quotes.toscrape.com/"
 
-# # List to store scraped data
-# list_quote = []
-
 # Scrape the data
 scraped_data = data_scraper(url_base)
 
