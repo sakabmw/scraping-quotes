@@ -51,3 +51,5 @@ def data_scraper(url):
 
     else:
         print(f"=== Failed to retrieve page: {url} ===")
+
+    return df
