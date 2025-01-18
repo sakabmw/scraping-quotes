@@ -20,11 +20,11 @@ def data_scraper(url):
         for quote in quotes:
             text = quote.find('span', class_='text').get_text()
             author = quote.find('small', class_='author').get_text()
-            tags = [tag.get_text() for tag in quote.find_all('a', class_='tag')]
+            tag = [tag.get_text() for tag in quote.find_all('a', class_='tag')]
             list_quote.append({
                 'quote': text,
                 'author': author,
-                'tags': ', '.join(tags)
+                'tag': ', '.join(tag)
             })
         print("=== Done scraping. ===")
 
