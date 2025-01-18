@@ -8,7 +8,7 @@ list_quote = []
 
 # Set a function to scrape the data from the URL above
 def data_scraper(url):
-    print("=== Get response from the web. ===")
+    print("=== Get response from {web}. ===".format(web=url))
     response = requests.get(url)
     if response.status_code == 200:
         print("=== Status code 200. ===")
